@@ -1,0 +1,41 @@
+header .header-top {
+  --bg-a: var(--header-a, 1);
+
+  background-color: hsla(var(--bg-h), var(--bg-s), var(--bg-l), var(--bg-a));
+  box-shadow: 0 0 var(--shadow-size) var(--shadow);
+
+  backdrop-filter: blur(2rem);
+
+  &.nav-open {
+    background-color: hsla(var(--bg-h), var(--bg-s), var(--bg-l), var(--bg-a)) !important;
+  }
+
+  &.nav-desktop {
+    @media (min-width: desktop-width) {
+      background-color: hsla(var(--bg-h), var(--bg-s), var(--bg-l), var(--bg-a)) !important;
+    }
+  }
+}
+
+header .nav-menu {
+  --bg-a: var(--header-a, 1);
+
+  background-color: hsla(var(--bg-h), var(--bg-s), var(--bg-l), var(--bg-a));
+  box-shadow: 0 0 var(--shadow-size) var(--shadow);
+
+  backdrop-filter: blur(2rem);
+}
+
+header .header-img nav {
+  --bg-a: max(calc(var(--header-a, 1) - 0.45), 0.25);
+}
+
+.page-bg, .card-bg {
+  --bg-a: var(--page-a, 1);
+  backdrop-filter: blur(2rem);
+}
+
+footer .copyright {
+  --bg-a: var(--copyright-a, 1);
+  backdrop-filter: blur(2rem);
+}

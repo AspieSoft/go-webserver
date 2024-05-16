@@ -1,0 +1,57 @@
+.page-bg, .card-bg, .dark-bg, .light-bg, .primary-bg, .accent-bg, .warn-bg {
+  background-color: var(--bg);
+
+  color: var(--text);
+  box-shadow: 0 0 var(--shadow-size) var(--shadow);
+  border-radius: var(--border-radius);
+  padding-inline: var(--padding-inline);
+
+  position: relative;
+  z-index: 10;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+
+    background: var(--img);
+    background-size: var(--img-size);
+    background-position: var(--img-pos);
+    background-attachment: var(--img-att);
+    background-blend-mode: var(--img-blend);
+    background-repeat: no-repeat;
+  }
+
+  &.widget, &.sidebar {
+    border-radius: 0;
+  }
+}
+
+.page-bg {
+  @elm(page);
+}
+
+.card-bg {
+  @elm(card);
+}
+
+.dark-bg {
+  @color(dark);
+}
+
+.light-bg {
+  @color(light);
+}
+
+.primary-bg {
+  @color(primary);
+}
+
+.accent-bg {
+  @color(accent);
+}
+
+.warn-bg {
+  @color(warn);
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"/>
+  <meta name="description" content=""/>
+  {{#if Title}}
+    <title>{{Title}} | Cloud Server</title>
+  {{else}}
+    <title>Cloud Server</title>
+  {{/if}}
+
+  <link rel="stylesheet" href="/theme/config.min.css"/>
+  <link rel="stylesheet" href="/theme/style.min.css"/>
+  <script src="/theme/script.min.js" defer></script>
+
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- <script src="https://unpkg.com/htmx.org@1.9.10"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <!--! hot reload script: disable in production -->
+  {{!-- <script src="/assets/test-reload.js" async></script> --}}
+</head>
+<body class="home-js-auto">
+  <header>
+    <!-- todo: add mobile nav menu -->
+    <!-- todo: remember to set nav menu for both left and right verients -->
+
+    <!-- todo: fix nav-left and hide-mobile classes for header-top -->
+    <!--? hide-mobile: hides the top-nav menu on mobile -->
+    <!--? nav-left: moves the nav button to the left of the screen -->
+    <!--? nav-desktop: shows the nav button on desktop (and large screens should keep the mobile nav menu visible) -->
+    <!-- todo: make sure 'nav-desktop' also keeps the mobile nav menu open on '@media desktop-width' -->
+    <div class="header-top hide-mobile-off nav-left-off nav-desktop-off nav-open-auto-js nav-closed-auto-js">
+      <a class="site-logo" href="/">Smart Theme</a>
+
+      <!--? center: moves the top-nav menu to the center instead of the default to the right -->
+      <div class="top-menu center-off">
+        <nav class="top-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <!-- todo: add submenu and megamenu support -->
+          </ul>
+        </nav>
+        <nav>
+          <ul>
+            <li><a href="#login"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+            <li><a href="#search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+
+            <!-- todo: replace menu button with an svg animation -->
+            <li><a href="#menu" class="nav-btn"><i class="fa-solid fa-bars"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <div class="nav-menu">
+      <nav class="side-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <!-- todo: add submenu and megamenu support -->
+        </ul>
+      </nav>
+    </div>
+
+    <!--? stack: makes an inline image align above or below the content, instead of the default on the side of the content -->
+    <div class="header-img stack-off">
+      <!-- <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </nav> -->
+      <div class="content">
+        <h1>Smart Theme</h1>
+        <br/>
+      </div>
+      <!-- <img src="/assets/background/tree.webp"/> -->
+      <!-- <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </nav> -->
+    </div>
+  </header>
+  <div id="page-content" class="page-fill-off">
+    <div class="widget page-bg">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est error earum assumenda expedita esse quas, necessitatibus dignissimos quisquam deleniti repudiandae eligendi ab molestias in doloribus obcaecati cupiditate consequuntur similique consectetur.</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, soluta animi voluptatibus voluptatem, quam, corrupti perspiciatis dolorem vero non maiores natus nobis inventore minus veritatis nam porro repudiandae. Ipsa, quaerat!</p>
+    </div>
+    <main class="content-grid page-bg">
+      {{embed}}
+    </main>
+    <!-- <div class="widget page-bg">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, consequatur? Sit commodi vero corporis laboriosam suscipit animi, recusandae porro vitae temporibus unde ratione consectetur, tempore, non quod odio at perspiciatis.</p>
+    </div> -->
+  </div>
+  <footer>
+    <div class="content">
+      <h1>Footer</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, libero animi. Doloremque minus quidem quasi vitae voluptates, porro officiis praesentium cupiditate omnis eligendi assumenda neque non? Impedit eligendi ab aut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente animi enim sed tempora itaque eveniet excepturi nisi nobis similique ad voluptatum tempore minima sit fugiat reiciendis sunt quasi ab.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente provident tenetur saepe minima sequi, veniam vero quod repellendus rem eaque nesciunt, perspiciatis dolorem esse? Delectus vero dolore iusto ex quasi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium harum asperiores culpa dolores fugiat alias cumque excepturi minima temporibus ea velit officiis dicta, voluptatibus tenetur similique et, reiciendis, maiores quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi omnis officiis, nostrum nemo repudiandae veritatis reiciendis beatae iste enim nesciunt error ipsam nobis aliquam itaque placeat quasi molestias pariatur.</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae distinctio beatae, fuga quisquam, vitae cum numquam aperiam mollitia quia minus sed dolorum atque eligendi explicabo sequi commodi voluptatibus itaque? Esse. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, doloremque quidem beatae consequatur eligendi modi iste. Aliquam, quis! Temporibus id est nam officiis praesentium architecto hic corrupti laudantium consequuntur dolorem?</p>
+    </div>
+    <div class="copyright">Powered by <a href="https://aspiesoft.com">AspieSoft</a></div>
+  </footer>
+</body>
+</html>

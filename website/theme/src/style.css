@@ -1,0 +1,94 @@
+a {
+  color: var(--link);
+  font-weight: bold;
+  text-decoration: underline 0.125em;
+  /* text-underline-offset: 0.25em; */
+  text-underline-offset: 0.125em;
+  position: relative;
+
+  opacity: 1;
+  transition: opacity 0.05s;
+
+  &:hover, &:focus {
+    outline: none;
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: solid 0.15em currentColor;
+    outline-offset: 0.1em;
+    border-radius: 0.25em;
+  }
+}
+
+p {
+  margin: 1rem 0.5rem;
+
+  &:first-child {
+    margin-top: 0.5rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@for(i, 1, 12){
+  h{i}, .h{i} {
+    color: var(--heading);
+    margin: 2rem 0.5rem 1rem;
+    font-family: var(--heading-font);
+
+    &:first-child {
+      margin-top: 0.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  h{i} strong, h{i} b, strong h{i}, b h{i}, .h{i} strong, .h{i} b, strong .h{i}, b .h{i} {
+    background-color: var(--heading);
+    background-image: var(--strongheading);
+    color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(2px 2px var(--textshadow-size) var(--textshadow));
+
+    background-size: 100%;
+    background-repeat: repeat;
+
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-family: var(--ff-serif, var(--font));
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+
+  main.content-grid & {
+    padding: 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 var(--shadow-size) var(--shadow);
+
+    &.full-width, &.full-text {
+      padding: 0;
+      border-radius: 0;
+    }
+
+    &.breakout, &.breakout-bg {
+      padding: 0;
+    }
+  }
+}

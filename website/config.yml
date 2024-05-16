@@ -1,0 +1,6 @@
+origin: [localhost] # [localhost, example.com]
+proxy: [127.0.0.1] # [127.0.0.1, 192.168.0.1]
+port: [8080, 8443] # [http, https]
+autoTLS: yes # if yes, auto generate self signd ssl certificates with openssl
+
+DebugMode: true

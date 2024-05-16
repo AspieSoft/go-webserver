@@ -1,0 +1,7 @@
+theme: default
+
+config:
+  header-a-top: 0
+  header-a: 0.75
+  page-a: 0.52
+  copyright-a: 0.52

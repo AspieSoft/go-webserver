@@ -1,0 +1,331 @@
+/* todo: reference smart-theme-0.0.1 and slowly add in any original features that may be missing from the new layout */
+
+html, body {
+  font-family: var(--font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  text-shadow: 2px 2px var(--textshadow-size) var(--textshadow);
+
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-y: overlay;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+
+    background: var(--img);
+    background-size: var(--img-size);
+    background-position: var(--img-pos);
+    background-attachment: var(--img-att);
+    background-blend-mode: var(--img-blend);
+    background-repeat: no-repeat;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  padding-block: 20px;
+  box-shadow: 0 0 var(--shadow-size) var(--shadow);
+  z-index: 100;
+
+  flex: 1;
+
+  &.page-bg, &.card-bg {
+    border-radius: var(--border-radius);
+    margin-block: 40px;
+
+    &.page-fill {
+      border-radius: 0;
+      margin-block: 0;
+      max-width: 100%;
+    }
+
+    @media (max-width: desktop-width) {
+      border-radius: 0;
+      margin-block: 0;
+    }
+  }
+}
+
+#page-content {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  flex: 1;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+
+  box-shadow: 0 0 var(--shadow-size) var(--shadow);
+
+  main {
+    box-shadow: none;
+
+    &.page-bg, &.card-bg {
+      box-shadow: 0 0 var(--shadow-size) var(--shadow);
+    }
+  }
+
+  .widget, .sidebar {
+    width: var(--widget-size);
+    max-width: var(--widget-max-size);
+    margin: 0;
+    padding: 20px var(--page-padding-inline, 1rem);
+    box-sizing: border-box;
+    z-index: 50;
+
+    & > :last-child.widget-smaller-than-vh {
+      position: sticky;
+      top: calc(var(--header-height, 0.001px) + 20px);
+    }
+
+    &.page-bg, &.card-bg {
+      border-radius: var(--border-radius);
+      margin-block: 40px;
+
+      &:first-child {
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      }
+
+      &:last-child {
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+      }
+
+      &.page-fill {
+        border-radius: 0;
+        margin-block: 0;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: desktop-width) {
+      display: none;
+    }
+  }
+
+  &.page-fill {
+    gap: 0;
+
+    main.page-bg, main.card-bg, .widget.page-bg, .widget.card-bg, .sidebar.page-bg, .sidebar.card-bg {
+      border-radius: 0;
+      margin-block: 0;
+      max-width: 100%;
+    }
+
+    &:has(main.page-bg, main.card-bg) {
+      .widget.page-bg, .widget.card-bg, .sidebar.page-bg, .sidebar.card-bg {
+        &:first-child {
+          border-right: solid 0.2rem currentColor;
+        }
+
+        &:last-child {
+          border-left: solid 0.2rem currentColor;
+        }
+      }
+    }
+  }
+}
+
+
+/** Content Grid */
+.content-grid, .full-width {
+  --padding-inline: var(--page-padding-inline, 1rem);
+  --content-max-width: var(--page-content-max-width, 120ch);
+  --breakout-max-width: var(--page-breakout-max-width, calc(var(--content-max-width) + 15ch));
+
+  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(calc(100% - (var(--padding-inline) * 2)), var(--content-max-width)) [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+  grid-auto-rows: max-content;
+
+  box-sizing: border-box;
+  padding-inline: 0;
+
+  @media (max-width: mobile-width) {
+    --padding-inline: var(--page-padding-inline-mobile, 1rem);
+  }
+
+  & > :not(.breakout, .full-width) {
+    grid-column: content;
+    border-radius: var(--border-radius);
+  }
+
+  & > .breakout {
+    grid-column: breakout;
+
+    border-radius: var(--border-radius);
+  }
+
+  & > .breakout-bg {
+    grid-column: breakout;
+
+    padding: var(--padding-inline);
+    border-radius: var(--border-radius);
+  }
+
+  & > .full-width {
+    grid-column: full-width;
+
+    display: grid;
+    grid-template-columns: inherit;
+
+    padding: var(--padding-inline);
+    border-radius: 0;
+  }
+
+  & > .full-text {
+    grid-column: full-width;
+
+    padding: var(--padding-inline);
+    border-radius: 0;
+  }
+
+  &.page-bg, &.card-bg & > .page-bg {
+    width: 100%;
+    max-width: var(--page-hard-max-width, 100%);
+    margin-inline: auto;
+  
+    box-shadow: 0 0 var(--shadow-size) var(--shadow);
+  }
+}
+
+/** Spacer */
+.spacer {
+  display: block;
+  min-width: 95%;
+  height: 0.2rem;
+  margin: 0.5rem;
+  border-radius: 0.2rem;
+  background: none;
+
+  &.fill {
+    background: var(--text);
+    box-shadow: 0 0 var(--shadow-size) var(--shadow);
+  }
+}
+
+/** Row */
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: stretch;
+
+  &.row-gap {
+    gap: 1.5rem;
+  }
+
+  &.row-align-start {
+    align-items: flex-start;
+  }
+
+  &.row-align-center {
+    align-items: center;
+  }
+
+  &.row-align-end {
+    align-items: flex-end;
+  }
+
+  &.row-start {
+    justify-content: flex-start;
+  }
+
+  &.row-center {
+    justify-content: center;
+  }
+
+  &.row-end {
+    justify-content: flex-end;
+  }
+
+  &.row-space, &.row-space-around {
+    justify-content: space-around;
+  }
+
+  &.row-even, &.row-space-even, &.row-space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &.row-between, &.row-space-between {
+    justify-content: space-between;
+  }
+
+  &.row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.row-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-x: overlay;
+
+    & > * {
+      flex-shrink: 0;
+    }
+  }
+
+  &.row-wrap-reverse, &.row-reverse-wrap {
+    flex-wrap: wrap-reverse;
+  }
+
+  &.row-span > *, &.row-expand > * {
+    flex-grow: 3;
+  }
+
+  & > .row-span, & > .row-expand {
+    flex-grow: 3;
+  }
+
+  & > .row-span-smaller, & > .row-expand-smaller {
+    flex-grow: 1.25;
+  }
+
+  & > .row-span-small, & > .row-expand-small {
+    flex-grow: 2;
+  }
+
+  & > .row-span-big, & > .row-expand-big {
+    flex-grow: 4.5;
+  }
+
+  & > .row-span-bigger, & > .row-expand-bigger {
+    flex-grow: 7;
+  }
+}

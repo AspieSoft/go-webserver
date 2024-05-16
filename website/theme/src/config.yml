@@ -1,0 +1,181 @@
+theme: default
+
+default-dark-mode: yes
+
+config:
+  header-a-top: 0
+  header-a: 0.75
+  page-a: 0.52
+  copyright-a: 0.52
+
+layout:
+  page-padding-inline: 1.5rem
+  page-padding-inline-mobile: 0.5rem
+  # page-content-max-width: 120ch
+  # page-content-max-width: 1250px
+  page-content-max-width: 1250px
+  # page-breakout-max-width: 75rem
+  page-breakout-max-width: 1320px
+  page-hard-max-width: 1400px #? only for page-bg mode
+
+  widget-size: 20%
+  widget-max-size: 320px
+
+  headerimg-width: auto #? only for side image
+  headerimg-height: 50vh
+  headerimg-height-home: 100vh
+  headernav-justify: center #? center | flex-start | flex-end | space-around | space-evenly | stretch
+  nav-underline-radius: 0.125em #? default: 0.125em | cool effect: 50%
+
+  side-nav-width: 250px #? default: 250px
+
+  shadow-size: 0.25rem
+  textshadow-size: 0.1em
+
+  border-radius: 0.5em
+
+topography:
+  font-size: 1.1rem
+  line-height: 1.5em
+
+  font:
+    sans: "'Roboto', ui-sans-serif, system-ui, sans-serif"
+    serif: "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif"
+    mono: "'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace"
+    cursive: "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive"
+    logo: "'Varela Round', Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif"
+
+  import-fonts:
+    - name: "Varela Round"
+      local: "Varela Round"
+      src: "/assets/fonts/Varela_Round/VarelaRound-Regular.ttf"
+      format: "truetype"
+      display: swap
+    - name: "Roboto"
+      local: "Roboto"
+      src: "/assets/fonts/Roboto/Roboto-{100:Thin,ThinItalic|300:Light,LightItalic|400:Regular,Italic|500:Medium,MediumItalic|700:Bold,BoldItalic|900:Black,BlackItalic}.ttf"
+      format: "truetype"
+      display: optional
+
+text:
+  light: "#ffffff"
+  dark: "#0f0f0f"
+  light-link: "#3db9eb"
+  dark-link: "#1a84cb"
+
+heading:
+  light: text #? auto | text | primary | accent | warn
+  dark: text #? auto | text | primary | accent | warn
+  light-strong: auto #? auto | custom gradient
+  dark-strong: auto #? auto | custom gradient
+  font: serif #? auto | @font[keyword] | 'custom font'
+
+input:
+  light: auto
+  dark: auto
+  font: sans
+
+shadow:
+  light: "hsla(0, 0%, 50%, 0.5)"
+  dark: "hsla(0, 0%, 25%, 0.5)"
+  light-text: "hsla(0, 0%, 50%, 0.25)"
+  dark-text: "hsla(0, 0%, 25%, 0.25)"
+
+color:
+  primary:
+    light: "hsl(192deg, 100%, 40%)"
+    dark: "hsl(192deg, 100%, 30%)"
+    fg: text #? auto | text | primary | accent | warn
+    font: auto #? auto | @font[keyword] | 'custom font'
+
+  accent:
+    light: "hsl(130deg, 82%, 40%)"
+    dark: "hsl(130deg, 82%, 30%)"
+    fg: text #? auto | text | primary | accent | warn
+    font: auto #? auto | @font[keyword] | 'custom font'
+
+  warn:
+    light: "hsl(0deg, 74%, 42%)"
+    dark: "hsl(0deg, 74%, 32%)"
+    fg: text #? auto | text | primary | accent | warn
+    font: auto #? auto | @font[keyword] | 'custom font'
+
+  dark:
+    light: "hsl(0deg, 0%, 17%)"
+    dark: "hsl(0deg, 0%, 17%)"
+    fg: auto #? auto | text | primary | accent | warn
+    font: auto #? auto | @font[keyword] | 'custom font'
+
+  light:
+    light: "hsl(0deg, 0%, 94%)"
+    dark: "hsl(0deg, 0%, 28%)"
+    fg: auto #? auto | text | primary | accent | warn
+    font: auto #? auto | @font[keyword] | 'custom font'
+
+element:
+  base:
+    light: "hsl(0, 0%, 90%)"
+    dark: "hsl(0, 0%, 10%)"
+    fg: auto #? auto | text
+    font: sans #? auto | @font[keyword] | 'custom font'
+    img:
+      light: "url('/assets/background/beach.480p.webp')"
+      dark: "url('/assets/background/beach.480p.webp')"
+      size: cover #? cover | contain
+      pos: center #? center | top | bottom | left | right
+      att: fixed #? fixed | scroll
+      blend: overlay #? normal | overlay | darken | lighten | multiply | difference
+
+  page:
+    light: "hsl(0, 0%, 100%)"
+    dark: "hsl(0, 0%, 0%)"
+    fg: auto #? auto | text
+    font: auto #? auto | @font[keyword] | 'custom font'
+    img: none
+
+  card:
+    light: "hsl(0, 0%, 100%)"
+    dark: "hsl(0, 0%, 0%)"
+    fg: auto #? auto | text
+    font: auto #? auto | @font[keyword] | 'custom font'
+    img: none
+
+  header:
+    light: "hsl(0, 0%, 0%)"
+    dark: "hsl(0, 0%, 0%)"
+    fg: text #? auto | text
+    font: sans #? auto | @font[keyword] | 'custom font'
+    img: none
+
+  headerimg:
+    light: "hsl(0, 0%, 0%)"
+    dark: "hsl(0, 0%, 0%)"
+    fg: auto #? auto | text
+    font: sans #? auto | @font[keyword] | 'custom font'
+    img:
+      light: "url('/assets/background/sunset.480p.webp')"
+      dark: "url('/assets/background/sunset.480p.webp')"
+      size: cover #? cover | contain
+      pos: center #? center | top | bottom | left | right
+      att: fixed #? fixed | scroll
+      blend: overlay #? normal | overlay | darken | lighten | multiply | difference
+
+  footer:
+    light: "hsl(0, 0%, 0%)"
+    dark: "hsl(0, 0%, 0%)"
+    fg: auto #? auto | text
+    font: sans #? auto | @font[keyword] | 'custom font'
+    img:
+      light: "url('/assets/background/wave.webp') rgba(0, 0, 0, 0.25)"
+      dark: "url('/assets/background/wave.webp') rgba(0, 0, 0, 0.25)"
+      size: cover #? cover | contain
+      pos: center #? center | top | bottom | left | right
+      att: fixed #? fixed | scroll
+      blend: overlay #? normal | overlay | darken | lighten | multiply | difference
+
+  copyright:
+    light: "hsl(0, 0%, 0%)"
+    dark: "hsl(0, 0%, 0%)"
+    fg: text #? auto | text
+    font: logo #? auto | @font[keyword] | 'custom font'
+    img: none
