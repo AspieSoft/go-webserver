@@ -15,7 +15,7 @@ import (
 	"time"
 
 	"github.com/AspieSoft/go-regex/v8"
-	"github.com/AspieSoft/goutil/fs/v2"
+	"github.com/AspieSoft/goutil/fs/v3"
 	"github.com/AspieSoft/goutil/v7"
 	"github.com/lucasb-eyer/go-colorful"
 	"github.com/tdewolff/minify/v2"
